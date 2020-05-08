@@ -1,0 +1,24 @@
+{
+  "name": "@oojob/protorepo-profile-node",
+  "version": "1.0.0",
+  "description": "",
+  "main": "service_grpc_pb.js",
+  "directories": {
+    "doc": "doc"
+  },
+  "scripts": {
+    "release": "standard-version",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/oojob/protorepo-profile-node.git"
+  },
+  "keywords": [],
+  "author": "nirajgeorgian <nirajgeorgian@gmail.com> (https://github.com/nirajgeorgian)",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/oojob/protorepo-profile-node/issues"
+  },
+  "homepage": "https://github.com/oojob/protorepo-profile-node#readme"
+}
