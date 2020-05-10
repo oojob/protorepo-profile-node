@@ -2,10 +2,10 @@
 // file: services/profile/service.proto
 
 import * as jspb from "google-protobuf";
-import * as oojob_protobuf_system_pb from "@oojob/oojob-protobuf/system_pb";
-import * as oojob_protobuf_metadata_pb from "@oojob/oojob-protobuf/metadata_pb";
-import * as oojob_protobuf_place_pb from "@oojob/oojob-protobuf/place_pb";
-import * as oojob_protobuf_health_pb from "@oojob/oojob-protobuf/health_pb";
+import * as github_com_oojob_protobuf_system_pb from "@oojob/oojob-protobuf/system_pb";
+import * as github_com_oojob_protobuf_metadata_pb from "@oojob/oojob-protobuf/metadata_pb";
+import * as github_com_oojob_protobuf_place_pb from "@oojob/oojob-protobuf/place_pb";
+import * as github_com_oojob_protobuf_health_pb from "@oojob/oojob-protobuf/health_pb";
 import * as google_protobuf_timestamp_pb from "google-protobuf/google/protobuf/timestamp_pb";
 
 export class Education extends jspb.Message {
@@ -48,8 +48,8 @@ export class ProfileSecurity extends jspb.Message {
   getCodeType(): string;
   setCodeType(value: string): void;
 
-  getAccountType(): string;
-  setAccountType(value: string): void;
+  getAccountType(): ProfileSecurity.AccountTypeMap[keyof ProfileSecurity.AccountTypeMap];
+  setAccountType(value: ProfileSecurity.AccountTypeMap[keyof ProfileSecurity.AccountTypeMap]): void;
 
   getVerified(): boolean;
   setVerified(value: boolean): void;
@@ -71,16 +71,25 @@ export namespace ProfileSecurity {
     passwordHash: string,
     code: string,
     codeType: string,
-    accountType: string,
+    accountType: ProfileSecurity.AccountTypeMap[keyof ProfileSecurity.AccountTypeMap],
     verified: boolean,
   }
+
+  export interface AccountTypeMap {
+    BASE: 0;
+    COMPANY: 1;
+    FUNDING: 2;
+    JOB: 3;
+  }
+
+  export const AccountType: AccountTypeMap;
 }
 
 export class Profile extends jspb.Message {
   hasIdentity(): boolean;
   clearIdentity(): void;
-  getIdentity(): oojob_protobuf_system_pb.Identifier | undefined;
-  setIdentity(value?: oojob_protobuf_system_pb.Identifier): void;
+  getIdentity(): github_com_oojob_protobuf_system_pb.Identifier | undefined;
+  setIdentity(value?: github_com_oojob_protobuf_system_pb.Identifier): void;
 
   getGivenName(): string;
   setGivenName(value: string): void;
@@ -96,8 +105,8 @@ export class Profile extends jspb.Message {
 
   hasEmail(): boolean;
   clearEmail(): void;
-  getEmail(): oojob_protobuf_system_pb.Email | undefined;
-  setEmail(value?: oojob_protobuf_system_pb.Email): void;
+  getEmail(): github_com_oojob_protobuf_system_pb.Email | undefined;
+  setEmail(value?: github_com_oojob_protobuf_system_pb.Email): void;
 
   getGender(): string;
   setGender(value: string): void;
@@ -117,13 +126,18 @@ export class Profile extends jspb.Message {
 
   hasAddress(): boolean;
   clearAddress(): void;
-  getAddress(): oojob_protobuf_place_pb.Address | undefined;
-  setAddress(value?: oojob_protobuf_place_pb.Address): void;
+  getAddress(): github_com_oojob_protobuf_place_pb.Address | undefined;
+  setAddress(value?: github_com_oojob_protobuf_place_pb.Address): void;
+
+  hasSecurity(): boolean;
+  clearSecurity(): void;
+  getSecurity(): ProfileSecurity | undefined;
+  setSecurity(value?: ProfileSecurity): void;
 
   hasMetadata(): boolean;
   clearMetadata(): void;
-  getMetadata(): oojob_protobuf_metadata_pb.Metadata | undefined;
-  setMetadata(value?: oojob_protobuf_metadata_pb.Metadata): void;
+  getMetadata(): github_com_oojob_protobuf_metadata_pb.Metadata | undefined;
+  setMetadata(value?: github_com_oojob_protobuf_metadata_pb.Metadata): void;
 
   serializeBinary(): Uint8Array;
   toObject(includeInstance?: boolean): Profile.AsObject;
@@ -137,18 +151,19 @@ export class Profile extends jspb.Message {
 
 export namespace Profile {
   export type AsObject = {
-    identity?: oojob_protobuf_system_pb.Identifier.AsObject,
+    identity?: github_com_oojob_protobuf_system_pb.Identifier.AsObject,
     givenName: string,
     middleName: string,
     familyName: string,
     username: string,
-    email?: oojob_protobuf_system_pb.Email.AsObject,
+    email?: github_com_oojob_protobuf_system_pb.Email.AsObject,
     gender: string,
     birthdate?: google_protobuf_timestamp_pb.Timestamp.AsObject,
     currentPosition: string,
     education?: Education.AsObject,
-    address?: oojob_protobuf_place_pb.Address.AsObject,
-    metadata?: oojob_protobuf_metadata_pb.Metadata.AsObject,
+    address?: github_com_oojob_protobuf_place_pb.Address.AsObject,
+    security?: ProfileSecurity.AsObject,
+    metadata?: github_com_oojob_protobuf_metadata_pb.Metadata.AsObject,
   }
 }
 

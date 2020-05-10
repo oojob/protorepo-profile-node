@@ -13,43 +13,43 @@
 'use strict';
 var grpc = require('grpc');
 var services_profile_service_pb = require('./service_pb.js');
-var oojob_protobuf_system_pb = require('@oojob/oojob-protobuf/system_pb.js');
-var oojob_protobuf_metadata_pb = require('@oojob/oojob-protobuf/metadata_pb.js');
-var oojob_protobuf_place_pb = require('@oojob/oojob-protobuf/place_pb.js');
-var oojob_protobuf_health_pb = require('@oojob/oojob-protobuf/health_pb.js');
+var github_com_oojob_protobuf_system_pb = require('@oojob/oojob-protobuf/system_pb.js');
+var github_com_oojob_protobuf_metadata_pb = require('@oojob/oojob-protobuf/metadata_pb.js');
+var github_com_oojob_protobuf_place_pb = require('@oojob/oojob-protobuf/place_pb.js');
+var github_com_oojob_protobuf_health_pb = require('@oojob/oojob-protobuf/health_pb.js');
 var google_protobuf_timestamp_pb = require('google-protobuf/google/protobuf/timestamp_pb.js');
 
-function serialize_oojob_protobuf_DefaultResponse(arg) {
-  if (!(arg instanceof oojob_protobuf_system_pb.DefaultResponse)) {
-    throw new Error('Expected argument of type oojob.protobuf.DefaultResponse');
+function serialize_github_com_oojob_protobuf_DefaultResponse(arg) {
+  if (!(arg instanceof github_com_oojob_protobuf_system_pb.DefaultResponse)) {
+    throw new Error('Expected argument of type github.com.oojob.protobuf.DefaultResponse');
   }
   return new Buffer(arg.serializeBinary());
 }
 
-function deserialize_oojob_protobuf_DefaultResponse(buffer_arg) {
-  return oojob_protobuf_system_pb.DefaultResponse.deserializeBinary(new Uint8Array(buffer_arg));
+function deserialize_github_com_oojob_protobuf_DefaultResponse(buffer_arg) {
+  return github_com_oojob_protobuf_system_pb.DefaultResponse.deserializeBinary(new Uint8Array(buffer_arg));
 }
 
-function serialize_oojob_protobuf_HealthCheckRequest(arg) {
-  if (!(arg instanceof oojob_protobuf_health_pb.HealthCheckRequest)) {
-    throw new Error('Expected argument of type oojob.protobuf.HealthCheckRequest');
+function serialize_github_com_oojob_protobuf_HealthCheckRequest(arg) {
+  if (!(arg instanceof github_com_oojob_protobuf_health_pb.HealthCheckRequest)) {
+    throw new Error('Expected argument of type github.com.oojob.protobuf.HealthCheckRequest');
   }
   return new Buffer(arg.serializeBinary());
 }
 
-function deserialize_oojob_protobuf_HealthCheckRequest(buffer_arg) {
-  return oojob_protobuf_health_pb.HealthCheckRequest.deserializeBinary(new Uint8Array(buffer_arg));
+function deserialize_github_com_oojob_protobuf_HealthCheckRequest(buffer_arg) {
+  return github_com_oojob_protobuf_health_pb.HealthCheckRequest.deserializeBinary(new Uint8Array(buffer_arg));
 }
 
-function serialize_oojob_protobuf_HealthCheckResponse(arg) {
-  if (!(arg instanceof oojob_protobuf_health_pb.HealthCheckResponse)) {
-    throw new Error('Expected argument of type oojob.protobuf.HealthCheckResponse');
+function serialize_github_com_oojob_protobuf_HealthCheckResponse(arg) {
+  if (!(arg instanceof github_com_oojob_protobuf_health_pb.HealthCheckResponse)) {
+    throw new Error('Expected argument of type github.com.oojob.protobuf.HealthCheckResponse');
   }
   return new Buffer(arg.serializeBinary());
 }
 
-function deserialize_oojob_protobuf_HealthCheckResponse(buffer_arg) {
-  return oojob_protobuf_health_pb.HealthCheckResponse.deserializeBinary(new Uint8Array(buffer_arg));
+function deserialize_github_com_oojob_protobuf_HealthCheckResponse(buffer_arg) {
+  return github_com_oojob_protobuf_health_pb.HealthCheckResponse.deserializeBinary(new Uint8Array(buffer_arg));
 }
 
 function serialize_profile_ConfirmProfileRequest(arg) {
@@ -134,11 +134,11 @@ var ProfileServiceService = exports.ProfileServiceService = {
     requestStream: false,
     responseStream: false,
     requestType: services_profile_service_pb.ConfirmProfileRequest,
-    responseType: oojob_protobuf_system_pb.DefaultResponse,
+    responseType: github_com_oojob_protobuf_system_pb.DefaultResponse,
     requestSerialize: serialize_profile_ConfirmProfileRequest,
     requestDeserialize: deserialize_profile_ConfirmProfileRequest,
-    responseSerialize: serialize_oojob_protobuf_DefaultResponse,
-    responseDeserialize: deserialize_oojob_protobuf_DefaultResponse,
+    responseSerialize: serialize_github_com_oojob_protobuf_DefaultResponse,
+    responseDeserialize: deserialize_github_com_oojob_protobuf_DefaultResponse,
   },
   // / ProfileService ReadProfile :- help's us to read the entire profile data
   readProfile: {
@@ -171,11 +171,11 @@ var ProfileServiceService = exports.ProfileServiceService = {
     requestStream: false,
     responseStream: false,
     requestType: services_profile_service_pb.ValidateUsernameRequest,
-    responseType: oojob_protobuf_system_pb.DefaultResponse,
+    responseType: github_com_oojob_protobuf_system_pb.DefaultResponse,
     requestSerialize: serialize_profile_ValidateUsernameRequest,
     requestDeserialize: deserialize_profile_ValidateUsernameRequest,
-    responseSerialize: serialize_oojob_protobuf_DefaultResponse,
-    responseDeserialize: deserialize_oojob_protobuf_DefaultResponse,
+    responseSerialize: serialize_github_com_oojob_protobuf_DefaultResponse,
+    responseDeserialize: deserialize_github_com_oojob_protobuf_DefaultResponse,
   },
   // / ProfileService ValidateEmail :- help's us to validate email availability
   validateEmail: {
@@ -183,35 +183,35 @@ var ProfileServiceService = exports.ProfileServiceService = {
     requestStream: false,
     responseStream: false,
     requestType: services_profile_service_pb.ValidateEmailRequest,
-    responseType: oojob_protobuf_system_pb.DefaultResponse,
+    responseType: github_com_oojob_protobuf_system_pb.DefaultResponse,
     requestSerialize: serialize_profile_ValidateEmailRequest,
     requestDeserialize: deserialize_profile_ValidateEmailRequest,
-    responseSerialize: serialize_oojob_protobuf_DefaultResponse,
-    responseDeserialize: deserialize_oojob_protobuf_DefaultResponse,
+    responseSerialize: serialize_github_com_oojob_protobuf_DefaultResponse,
+    responseDeserialize: deserialize_github_com_oojob_protobuf_DefaultResponse,
   },
   // / Used to check health status of the running microservice
   check: {
     path: '/profile.ProfileService/Check',
     requestStream: false,
     responseStream: false,
-    requestType: oojob_protobuf_health_pb.HealthCheckRequest,
-    responseType: oojob_protobuf_health_pb.HealthCheckResponse,
-    requestSerialize: serialize_oojob_protobuf_HealthCheckRequest,
-    requestDeserialize: deserialize_oojob_protobuf_HealthCheckRequest,
-    responseSerialize: serialize_oojob_protobuf_HealthCheckResponse,
-    responseDeserialize: deserialize_oojob_protobuf_HealthCheckResponse,
+    requestType: github_com_oojob_protobuf_health_pb.HealthCheckRequest,
+    responseType: github_com_oojob_protobuf_health_pb.HealthCheckResponse,
+    requestSerialize: serialize_github_com_oojob_protobuf_HealthCheckRequest,
+    requestDeserialize: deserialize_github_com_oojob_protobuf_HealthCheckRequest,
+    responseSerialize: serialize_github_com_oojob_protobuf_HealthCheckResponse,
+    responseDeserialize: deserialize_github_com_oojob_protobuf_HealthCheckResponse,
   },
   // / Used to check health status of the running microservice as stream
   watch: {
     path: '/profile.ProfileService/Watch',
     requestStream: false,
     responseStream: true,
-    requestType: oojob_protobuf_health_pb.HealthCheckRequest,
-    responseType: oojob_protobuf_health_pb.HealthCheckResponse,
-    requestSerialize: serialize_oojob_protobuf_HealthCheckRequest,
-    requestDeserialize: deserialize_oojob_protobuf_HealthCheckRequest,
-    responseSerialize: serialize_oojob_protobuf_HealthCheckResponse,
-    responseDeserialize: deserialize_oojob_protobuf_HealthCheckResponse,
+    requestType: github_com_oojob_protobuf_health_pb.HealthCheckRequest,
+    responseType: github_com_oojob_protobuf_health_pb.HealthCheckResponse,
+    requestSerialize: serialize_github_com_oojob_protobuf_HealthCheckRequest,
+    requestDeserialize: deserialize_github_com_oojob_protobuf_HealthCheckRequest,
+    responseSerialize: serialize_github_com_oojob_protobuf_HealthCheckResponse,
+    responseDeserialize: deserialize_github_com_oojob_protobuf_HealthCheckResponse,
   },
 };
 

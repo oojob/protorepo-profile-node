@@ -207,6 +207,10 @@
                 </li>
               
               
+                <li>
+                  <a href="#profile.ProfileSecurity.AccountType"><span class="badge">E</span>ProfileSecurity.AccountType</a>
+                </li>
+              
               
               
                 <li>
@@ -313,7 +317,7 @@
               
                 <tr>
                   <td>identity</td>
-                  <td><a href="#oojob.protobuf.Identifier">oojob.protobuf.Identifier</a></td>
+                  <td><a href="#github.com.oojob.protobuf.Identifier">github.com.oojob.protobuf.Identifier</a></td>
                   <td></td>
                   <td><p>Profile identifier :- base iddentifier act&#39;s as unique identifier </p></td>
                 </tr>
@@ -349,7 +353,7 @@
               
                 <tr>
                   <td>email</td>
-                  <td><a href="#oojob.protobuf.Email">oojob.protobuf.Email</a></td>
+                  <td><a href="#github.com.oojob.protobuf.Email">github.com.oojob.protobuf.Email</a></td>
                   <td></td>
                   <td><p>Profile email :- email address of the user </p></td>
                 </tr>
@@ -384,14 +388,21 @@
               
                 <tr>
                   <td>address</td>
-                  <td><a href="#oojob.protobuf.Address">oojob.protobuf.Address</a></td>
+                  <td><a href="#github.com.oojob.protobuf.Address">github.com.oojob.protobuf.Address</a></td>
                   <td></td>
                   <td><p>Profile address :- address of the preferred user </p></td>
                 </tr>
               
                 <tr>
+                  <td>security</td>
+                  <td><a href="#profile.ProfileSecurity">ProfileSecurity</a></td>
+                  <td></td>
+                  <td><p>ProfileSecurity help&#39;s us to maintain data related to profile security </p></td>
+                </tr>
+              
+                <tr>
                   <td>metadata</td>
-                  <td><a href="#oojob.protobuf.Metadata">oojob.protobuf.Metadata</a></td>
+                  <td><a href="#github.com.oojob.protobuf.Metadata">github.com.oojob.protobuf.Metadata</a></td>
                   <td></td>
                   <td><p>Profile metadata :- metadata related to the user </p></td>
                 </tr>
@@ -454,10 +465,9 @@
               
                 <tr>
                   <td>account_type</td>
-                  <td><a href="#string">string</a></td>
+                  <td><a href="#profile.ProfileSecurity.AccountType">ProfileSecurity.AccountType</a></td>
                   <td></td>
-                  <td><p>ProfileSecurity account_type :- weather the account belong&#39;s to job
-/ provide or job seeker </p></td>
+                  <td><p> </p></td>
                 </tr>
               
                 <tr>
@@ -549,6 +559,41 @@
       
 
       
+        <h3 id="profile.ProfileSecurity.AccountType">ProfileSecurity.AccountType</h3>
+        <p>ProfileSecurity account_type :- weather the account belong's to job</p><p>/ provide or job seeker</p>
+        <table class="enum-table">
+          <thead>
+            <tr><td>Name</td><td>Number</td><td>Description</td></tr>
+          </thead>
+          <tbody>
+            
+              <tr>
+                <td>BASE</td>
+                <td>0</td>
+                <td><p></p></td>
+              </tr>
+            
+              <tr>
+                <td>COMPANY</td>
+                <td>1</td>
+                <td><p></p></td>
+              </tr>
+            
+              <tr>
+                <td>FUNDING</td>
+                <td>2</td>
+                <td><p></p></td>
+              </tr>
+            
+              <tr>
+                <td>JOB</td>
+                <td>3</td>
+                <td><p></p></td>
+              </tr>
+            
+          </tbody>
+        </table>
+      
 
       
 
@@ -571,7 +616,7 @@
               <tr>
                 <td>ConfirmProfile</td>
                 <td><a href="#profile.ConfirmProfileRequest">ConfirmProfileRequest</a></td>
-                <td><a href="#oojob.protobuf.DefaultResponse">.oojob.protobuf.DefaultResponse</a></td>
+                <td><a href="#github.com.oojob.protobuf.DefaultResponse">.github.com.oojob.protobuf.DefaultResponse</a></td>
                 <td><p>ProfileService ConfirmProfile :- help&#39;s us to verify the profile</p></td>
               </tr>
             
@@ -592,7 +637,7 @@
               <tr>
                 <td>ValidateUsername</td>
                 <td><a href="#profile.ValidateUsernameRequest">ValidateUsernameRequest</a></td>
-                <td><a href="#oojob.protobuf.DefaultResponse">.oojob.protobuf.DefaultResponse</a></td>
+                <td><a href="#github.com.oojob.protobuf.DefaultResponse">.github.com.oojob.protobuf.DefaultResponse</a></td>
                 <td><p>ProfileService  ValidateUsername :- help&#39;s us to validate username
 / availability</p></td>
               </tr>
@@ -600,21 +645,21 @@
               <tr>
                 <td>ValidateEmail</td>
                 <td><a href="#profile.ValidateEmailRequest">ValidateEmailRequest</a></td>
-                <td><a href="#oojob.protobuf.DefaultResponse">.oojob.protobuf.DefaultResponse</a></td>
+                <td><a href="#github.com.oojob.protobuf.DefaultResponse">.github.com.oojob.protobuf.DefaultResponse</a></td>
                 <td><p>ProfileService ValidateEmail :- help&#39;s us to validate email availability</p></td>
               </tr>
             
               <tr>
                 <td>Check</td>
-                <td><a href="#oojob.protobuf.HealthCheckRequest">.oojob.protobuf.HealthCheckRequest</a></td>
-                <td><a href="#oojob.protobuf.HealthCheckResponse">.oojob.protobuf.HealthCheckResponse</a></td>
+                <td><a href="#github.com.oojob.protobuf.HealthCheckRequest">.github.com.oojob.protobuf.HealthCheckRequest</a></td>
+                <td><a href="#github.com.oojob.protobuf.HealthCheckResponse">.github.com.oojob.protobuf.HealthCheckResponse</a></td>
                 <td><p>Used to check health status of the running microservice</p></td>
               </tr>
             
               <tr>
                 <td>Watch</td>
-                <td><a href="#oojob.protobuf.HealthCheckRequest">.oojob.protobuf.HealthCheckRequest</a></td>
-                <td><a href="#oojob.protobuf.HealthCheckResponse">.oojob.protobuf.HealthCheckResponse</a> stream</td>
+                <td><a href="#github.com.oojob.protobuf.HealthCheckRequest">.github.com.oojob.protobuf.HealthCheckRequest</a></td>
+                <td><a href="#github.com.oojob.protobuf.HealthCheckResponse">.github.com.oojob.protobuf.HealthCheckResponse</a> stream</td>
                 <td><p>Used to check health status of the running microservice as stream</p></td>
               </tr>
             

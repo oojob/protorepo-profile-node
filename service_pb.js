@@ -12,20 +12,21 @@ var jspb = require('google-protobuf');
 var goog = jspb;
 var global = Function('return this')();
 
-var oojob_protobuf_system_pb = require('@oojob/oojob-protobuf/system_pb.js');
-goog.object.extend(proto, oojob_protobuf_system_pb);
-var oojob_protobuf_metadata_pb = require('@oojob/oojob-protobuf/metadata_pb.js');
-goog.object.extend(proto, oojob_protobuf_metadata_pb);
-var oojob_protobuf_place_pb = require('@oojob/oojob-protobuf/place_pb.js');
-goog.object.extend(proto, oojob_protobuf_place_pb);
-var oojob_protobuf_health_pb = require('@oojob/oojob-protobuf/health_pb.js');
-goog.object.extend(proto, oojob_protobuf_health_pb);
+var github_com_oojob_protobuf_system_pb = require('@oojob/oojob-protobuf/system_pb.js');
+goog.object.extend(proto, github_com_oojob_protobuf_system_pb);
+var github_com_oojob_protobuf_metadata_pb = require('@oojob/oojob-protobuf/metadata_pb.js');
+goog.object.extend(proto, github_com_oojob_protobuf_metadata_pb);
+var github_com_oojob_protobuf_place_pb = require('@oojob/oojob-protobuf/place_pb.js');
+goog.object.extend(proto, github_com_oojob_protobuf_place_pb);
+var github_com_oojob_protobuf_health_pb = require('@oojob/oojob-protobuf/health_pb.js');
+goog.object.extend(proto, github_com_oojob_protobuf_health_pb);
 var google_protobuf_timestamp_pb = require('google-protobuf/google/protobuf/timestamp_pb.js');
 goog.object.extend(proto, google_protobuf_timestamp_pb);
 goog.exportSymbol('proto.profile.ConfirmProfileRequest', null, global);
 goog.exportSymbol('proto.profile.Education', null, global);
 goog.exportSymbol('proto.profile.Profile', null, global);
 goog.exportSymbol('proto.profile.ProfileSecurity', null, global);
+goog.exportSymbol('proto.profile.ProfileSecurity.AccountType', null, global);
 goog.exportSymbol('proto.profile.ReadProfileRequest', null, global);
 goog.exportSymbol('proto.profile.ValidateEmailRequest', null, global);
 goog.exportSymbol('proto.profile.ValidateUsernameRequest', null, global);
@@ -373,7 +374,7 @@ proto.profile.ProfileSecurity.toObject = function(includeInstance, msg) {
     passwordHash: jspb.Message.getFieldWithDefault(msg, 3, ""),
     code: jspb.Message.getFieldWithDefault(msg, 4, ""),
     codeType: jspb.Message.getFieldWithDefault(msg, 5, ""),
-    accountType: jspb.Message.getFieldWithDefault(msg, 6, ""),
+    accountType: jspb.Message.getFieldWithDefault(msg, 6, 0),
     verified: jspb.Message.getBooleanFieldWithDefault(msg, 7, false)
   };
 
@@ -432,7 +433,7 @@ proto.profile.ProfileSecurity.deserializeBinaryFromReader = function(msg, reader
       msg.setCodeType(value);
       break;
     case 6:
-      var value = /** @type {string} */ (reader.readString());
+      var value = /** @type {!proto.profile.ProfileSecurity.AccountType} */ (reader.readEnum());
       msg.setAccountType(value);
       break;
     case 7:
@@ -504,8 +505,8 @@ proto.profile.ProfileSecurity.serializeBinaryToWriter = function(message, writer
     );
   }
   f = message.getAccountType();
-  if (f.length > 0) {
-    writer.writeString(
+  if (f !== 0.0) {
+    writer.writeEnum(
       6,
       f
     );
@@ -519,6 +520,16 @@ proto.profile.ProfileSecurity.serializeBinaryToWriter = function(message, writer
   }
 };
 
+
+/**
+ * @enum {number}
+ */
+proto.profile.ProfileSecurity.AccountType = {
+  BASE: 0,
+  COMPANY: 1,
+  FUNDING: 2,
+  JOB: 3
+};
 
 /**
  * optional string password = 1;
@@ -611,20 +622,20 @@ proto.profile.ProfileSecurity.prototype.setCodeType = function(value) {
 
 
 /**
- * optional string account_type = 6;
- * @return {string}
+ * optional AccountType account_type = 6;
+ * @return {!proto.profile.ProfileSecurity.AccountType}
  */
 proto.profile.ProfileSecurity.prototype.getAccountType = function() {
-  return /** @type {string} */ (jspb.Message.getFieldWithDefault(this, 6, ""));
+  return /** @type {!proto.profile.ProfileSecurity.AccountType} */ (jspb.Message.getFieldWithDefault(this, 6, 0));
 };
 
 
 /**
- * @param {string} value
+ * @param {!proto.profile.ProfileSecurity.AccountType} value
  * @return {!proto.profile.ProfileSecurity} returns this
  */
 proto.profile.ProfileSecurity.prototype.setAccountType = function(value) {
-  return jspb.Message.setProto3StringField(this, 6, value);
+  return jspb.Message.setProto3EnumField(this, 6, value);
 };
 
 
@@ -678,18 +689,19 @@ proto.profile.Profile.prototype.toObject = function(opt_includeInstance) {
  */
 proto.profile.Profile.toObject = function(includeInstance, msg) {
   var f, obj = {
-    identity: (f = msg.getIdentity()) && oojob_protobuf_system_pb.Identifier.toObject(includeInstance, f),
+    identity: (f = msg.getIdentity()) && github_com_oojob_protobuf_system_pb.Identifier.toObject(includeInstance, f),
     givenName: jspb.Message.getFieldWithDefault(msg, 2, ""),
     middleName: jspb.Message.getFieldWithDefault(msg, 3, ""),
     familyName: jspb.Message.getFieldWithDefault(msg, 4, ""),
     username: jspb.Message.getFieldWithDefault(msg, 5, ""),
-    email: (f = msg.getEmail()) && oojob_protobuf_system_pb.Email.toObject(includeInstance, f),
+    email: (f = msg.getEmail()) && github_com_oojob_protobuf_system_pb.Email.toObject(includeInstance, f),
     gender: jspb.Message.getFieldWithDefault(msg, 7, ""),
     birthdate: (f = msg.getBirthdate()) && google_protobuf_timestamp_pb.Timestamp.toObject(includeInstance, f),
     currentPosition: jspb.Message.getFieldWithDefault(msg, 9, ""),
     education: (f = msg.getEducation()) && proto.profile.Education.toObject(includeInstance, f),
-    address: (f = msg.getAddress()) && oojob_protobuf_place_pb.Address.toObject(includeInstance, f),
-    metadata: (f = msg.getMetadata()) && oojob_protobuf_metadata_pb.Metadata.toObject(includeInstance, f)
+    address: (f = msg.getAddress()) && github_com_oojob_protobuf_place_pb.Address.toObject(includeInstance, f),
+    security: (f = msg.getSecurity()) && proto.profile.ProfileSecurity.toObject(includeInstance, f),
+    metadata: (f = msg.getMetadata()) && github_com_oojob_protobuf_metadata_pb.Metadata.toObject(includeInstance, f)
   };
 
   if (includeInstance) {
@@ -727,8 +739,8 @@ proto.profile.Profile.deserializeBinaryFromReader = function(msg, reader) {
     var field = reader.getFieldNumber();
     switch (field) {
     case 1:
-      var value = new oojob_protobuf_system_pb.Identifier;
-      reader.readMessage(value,oojob_protobuf_system_pb.Identifier.deserializeBinaryFromReader);
+      var value = new github_com_oojob_protobuf_system_pb.Identifier;
+      reader.readMessage(value,github_com_oojob_protobuf_system_pb.Identifier.deserializeBinaryFromReader);
       msg.setIdentity(value);
       break;
     case 2:
@@ -748,8 +760,8 @@ proto.profile.Profile.deserializeBinaryFromReader = function(msg, reader) {
       msg.setUsername(value);
       break;
     case 6:
-      var value = new oojob_protobuf_system_pb.Email;
-      reader.readMessage(value,oojob_protobuf_system_pb.Email.deserializeBinaryFromReader);
+      var value = new github_com_oojob_protobuf_system_pb.Email;
+      reader.readMessage(value,github_com_oojob_protobuf_system_pb.Email.deserializeBinaryFromReader);
       msg.setEmail(value);
       break;
     case 7:
@@ -771,13 +783,18 @@ proto.profile.Profile.deserializeBinaryFromReader = function(msg, reader) {
       msg.setEducation(value);
       break;
     case 11:
-      var value = new oojob_protobuf_place_pb.Address;
-      reader.readMessage(value,oojob_protobuf_place_pb.Address.deserializeBinaryFromReader);
+      var value = new github_com_oojob_protobuf_place_pb.Address;
+      reader.readMessage(value,github_com_oojob_protobuf_place_pb.Address.deserializeBinaryFromReader);
       msg.setAddress(value);
       break;
     case 12:
-      var value = new oojob_protobuf_metadata_pb.Metadata;
-      reader.readMessage(value,oojob_protobuf_metadata_pb.Metadata.deserializeBinaryFromReader);
+      var value = new proto.profile.ProfileSecurity;
+      reader.readMessage(value,proto.profile.ProfileSecurity.deserializeBinaryFromReader);
+      msg.setSecurity(value);
+      break;
+    case 13:
+      var value = new github_com_oojob_protobuf_metadata_pb.Metadata;
+      reader.readMessage(value,github_com_oojob_protobuf_metadata_pb.Metadata.deserializeBinaryFromReader);
       msg.setMetadata(value);
       break;
     default:
@@ -814,7 +831,7 @@ proto.profile.Profile.serializeBinaryToWriter = function(message, writer) {
     writer.writeMessage(
       1,
       f,
-      oojob_protobuf_system_pb.Identifier.serializeBinaryToWriter
+      github_com_oojob_protobuf_system_pb.Identifier.serializeBinaryToWriter
     );
   }
   f = message.getGivenName();
@@ -850,7 +867,7 @@ proto.profile.Profile.serializeBinaryToWriter = function(message, writer) {
     writer.writeMessage(
       6,
       f,
-      oojob_protobuf_system_pb.Email.serializeBinaryToWriter
+      github_com_oojob_protobuf_system_pb.Email.serializeBinaryToWriter
     );
   }
   f = message.getGender();
@@ -888,32 +905,40 @@ proto.profile.Profile.serializeBinaryToWriter = function(message, writer) {
     writer.writeMessage(
       11,
       f,
-      oojob_protobuf_place_pb.Address.serializeBinaryToWriter
+      github_com_oojob_protobuf_place_pb.Address.serializeBinaryToWriter
+    );
+  }
+  f = message.getSecurity();
+  if (f != null) {
+    writer.writeMessage(
+      12,
+      f,
+      proto.profile.ProfileSecurity.serializeBinaryToWriter
     );
   }
   f = message.getMetadata();
   if (f != null) {
     writer.writeMessage(
-      12,
+      13,
       f,
-      oojob_protobuf_metadata_pb.Metadata.serializeBinaryToWriter
+      github_com_oojob_protobuf_metadata_pb.Metadata.serializeBinaryToWriter
     );
   }
 };
 
 
 /**
- * optional oojob.protobuf.Identifier identity = 1;
- * @return {?proto.oojob.protobuf.Identifier}
+ * optional github.com.oojob.protobuf.Identifier identity = 1;
+ * @return {?proto.github.com.oojob.protobuf.Identifier}
  */
 proto.profile.Profile.prototype.getIdentity = function() {
-  return /** @type{?proto.oojob.protobuf.Identifier} */ (
-    jspb.Message.getWrapperField(this, oojob_protobuf_system_pb.Identifier, 1));
+  return /** @type{?proto.github.com.oojob.protobuf.Identifier} */ (
+    jspb.Message.getWrapperField(this, github_com_oojob_protobuf_system_pb.Identifier, 1));
 };
 
 
 /**
- * @param {?proto.oojob.protobuf.Identifier|undefined} value
+ * @param {?proto.github.com.oojob.protobuf.Identifier|undefined} value
  * @return {!proto.profile.Profile} returns this
 */
 proto.profile.Profile.prototype.setIdentity = function(value) {
@@ -1012,17 +1037,17 @@ proto.profile.Profile.prototype.setUsername = function(value) {
 
 
 /**
- * optional oojob.protobuf.Email email = 6;
- * @return {?proto.oojob.protobuf.Email}
+ * optional github.com.oojob.protobuf.Email email = 6;
+ * @return {?proto.github.com.oojob.protobuf.Email}
  */
 proto.profile.Profile.prototype.getEmail = function() {
-  return /** @type{?proto.oojob.protobuf.Email} */ (
-    jspb.Message.getWrapperField(this, oojob_protobuf_system_pb.Email, 6));
+  return /** @type{?proto.github.com.oojob.protobuf.Email} */ (
+    jspb.Message.getWrapperField(this, github_com_oojob_protobuf_system_pb.Email, 6));
 };
 
 
 /**
- * @param {?proto.oojob.protobuf.Email|undefined} value
+ * @param {?proto.github.com.oojob.protobuf.Email|undefined} value
  * @return {!proto.profile.Profile} returns this
 */
 proto.profile.Profile.prototype.setEmail = function(value) {
@@ -1159,17 +1184,17 @@ proto.profile.Profile.prototype.hasEducation = function() {
 
 
 /**
- * optional oojob.protobuf.Address address = 11;
- * @return {?proto.oojob.protobuf.Address}
+ * optional github.com.oojob.protobuf.Address address = 11;
+ * @return {?proto.github.com.oojob.protobuf.Address}
  */
 proto.profile.Profile.prototype.getAddress = function() {
-  return /** @type{?proto.oojob.protobuf.Address} */ (
-    jspb.Message.getWrapperField(this, oojob_protobuf_place_pb.Address, 11));
+  return /** @type{?proto.github.com.oojob.protobuf.Address} */ (
+    jspb.Message.getWrapperField(this, github_com_oojob_protobuf_place_pb.Address, 11));
 };
 
 
 /**
- * @param {?proto.oojob.protobuf.Address|undefined} value
+ * @param {?proto.github.com.oojob.protobuf.Address|undefined} value
  * @return {!proto.profile.Profile} returns this
 */
 proto.profile.Profile.prototype.setAddress = function(value) {
@@ -1196,21 +1221,58 @@ proto.profile.Profile.prototype.hasAddress = function() {
 
 
 /**
- * optional oojob.protobuf.Metadata metadata = 12;
- * @return {?proto.oojob.protobuf.Metadata}
+ * optional ProfileSecurity security = 12;
+ * @return {?proto.profile.ProfileSecurity}
  */
-proto.profile.Profile.prototype.getMetadata = function() {
-  return /** @type{?proto.oojob.protobuf.Metadata} */ (
-    jspb.Message.getWrapperField(this, oojob_protobuf_metadata_pb.Metadata, 12));
+proto.profile.Profile.prototype.getSecurity = function() {
+  return /** @type{?proto.profile.ProfileSecurity} */ (
+    jspb.Message.getWrapperField(this, proto.profile.ProfileSecurity, 12));
 };
 
 
 /**
- * @param {?proto.oojob.protobuf.Metadata|undefined} value
+ * @param {?proto.profile.ProfileSecurity|undefined} value
+ * @return {!proto.profile.Profile} returns this
+*/
+proto.profile.Profile.prototype.setSecurity = function(value) {
+  return jspb.Message.setWrapperField(this, 12, value);
+};
+
+
+/**
+ * Clears the message field making it undefined.
+ * @return {!proto.profile.Profile} returns this
+ */
+proto.profile.Profile.prototype.clearSecurity = function() {
+  return this.setSecurity(undefined);
+};
+
+
+/**
+ * Returns whether this field is set.
+ * @return {boolean}
+ */
+proto.profile.Profile.prototype.hasSecurity = function() {
+  return jspb.Message.getField(this, 12) != null;
+};
+
+
+/**
+ * optional github.com.oojob.protobuf.Metadata metadata = 13;
+ * @return {?proto.github.com.oojob.protobuf.Metadata}
+ */
+proto.profile.Profile.prototype.getMetadata = function() {
+  return /** @type{?proto.github.com.oojob.protobuf.Metadata} */ (
+    jspb.Message.getWrapperField(this, github_com_oojob_protobuf_metadata_pb.Metadata, 13));
+};
+
+
+/**
+ * @param {?proto.github.com.oojob.protobuf.Metadata|undefined} value
  * @return {!proto.profile.Profile} returns this
 */
 proto.profile.Profile.prototype.setMetadata = function(value) {
-  return jspb.Message.setWrapperField(this, 12, value);
+  return jspb.Message.setWrapperField(this, 13, value);
 };
 
 
@@ -1228,7 +1290,7 @@ proto.profile.Profile.prototype.clearMetadata = function() {
  * @return {boolean}
  */
 proto.profile.Profile.prototype.hasMetadata = function() {
-  return jspb.Message.getField(this, 12) != null;
+  return jspb.Message.getField(this, 13) != null;
 };
 
 
