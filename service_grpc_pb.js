@@ -52,6 +52,17 @@ function deserialize_github_com_oojob_protobuf_HealthCheckResponse(buffer_arg) {
   return github_com_oojob_protobuf_health_pb.HealthCheckResponse.deserializeBinary(new Uint8Array(buffer_arg));
 }
 
+function serialize_github_com_oojob_protobuf_Id(arg) {
+  if (!(arg instanceof github_com_oojob_protobuf_system_pb.Id)) {
+    throw new Error('Expected argument of type github.com.oojob.protobuf.Id');
+  }
+  return new Buffer(arg.serializeBinary());
+}
+
+function deserialize_github_com_oojob_protobuf_Id(buffer_arg) {
+  return github_com_oojob_protobuf_system_pb.Id.deserializeBinary(new Uint8Array(buffer_arg));
+}
+
 function serialize_profile_ConfirmProfileRequest(arg) {
   if (!(arg instanceof services_profile_service_pb.ConfirmProfileRequest)) {
     throw new Error('Expected argument of type profile.ConfirmProfileRequest');
@@ -122,11 +133,11 @@ var ProfileServiceService = exports.ProfileServiceService = {
     requestStream: false,
     responseStream: false,
     requestType: services_profile_service_pb.Profile,
-    responseType: services_profile_service_pb.Profile,
+    responseType: github_com_oojob_protobuf_system_pb.Id,
     requestSerialize: serialize_profile_Profile,
     requestDeserialize: deserialize_profile_Profile,
-    responseSerialize: serialize_profile_Profile,
-    responseDeserialize: deserialize_profile_Profile,
+    responseSerialize: serialize_github_com_oojob_protobuf_Id,
+    responseDeserialize: deserialize_github_com_oojob_protobuf_Id,
   },
   // / ProfileService ConfirmProfile :- help's us to verify the profile
   confirmProfile: {
@@ -158,11 +169,11 @@ var ProfileServiceService = exports.ProfileServiceService = {
     requestStream: false,
     responseStream: false,
     requestType: services_profile_service_pb.Profile,
-    responseType: services_profile_service_pb.Profile,
+    responseType: github_com_oojob_protobuf_system_pb.Id,
     requestSerialize: serialize_profile_Profile,
     requestDeserialize: deserialize_profile_Profile,
-    responseSerialize: serialize_profile_Profile,
-    responseDeserialize: deserialize_profile_Profile,
+    responseSerialize: serialize_github_com_oojob_protobuf_Id,
+    responseDeserialize: deserialize_github_com_oojob_protobuf_Id,
   },
   // / ProfileService  ValidateUsername :- help's us to validate username
   // / availability
