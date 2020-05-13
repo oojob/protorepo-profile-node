@@ -63,26 +63,26 @@ function deserialize_github_com_oojob_protobuf_Id(buffer_arg) {
   return github_com_oojob_protobuf_system_pb.Id.deserializeBinary(new Uint8Array(buffer_arg));
 }
 
-function serialize_profile_AuthReq(arg) {
-  if (!(arg instanceof services_profile_service_pb.AuthReq)) {
-    throw new Error('Expected argument of type profile.AuthReq');
+function serialize_profile_AuthRequest(arg) {
+  if (!(arg instanceof services_profile_service_pb.AuthRequest)) {
+    throw new Error('Expected argument of type profile.AuthRequest');
   }
   return new Buffer(arg.serializeBinary());
 }
 
-function deserialize_profile_AuthReq(buffer_arg) {
-  return services_profile_service_pb.AuthReq.deserializeBinary(new Uint8Array(buffer_arg));
+function deserialize_profile_AuthRequest(buffer_arg) {
+  return services_profile_service_pb.AuthRequest.deserializeBinary(new Uint8Array(buffer_arg));
 }
 
-function serialize_profile_AuthRes(arg) {
-  if (!(arg instanceof services_profile_service_pb.AuthRes)) {
-    throw new Error('Expected argument of type profile.AuthRes');
+function serialize_profile_AuthResponse(arg) {
+  if (!(arg instanceof services_profile_service_pb.AuthResponse)) {
+    throw new Error('Expected argument of type profile.AuthResponse');
   }
   return new Buffer(arg.serializeBinary());
 }
 
-function deserialize_profile_AuthRes(buffer_arg) {
-  return services_profile_service_pb.AuthRes.deserializeBinary(new Uint8Array(buffer_arg));
+function deserialize_profile_AuthResponse(buffer_arg) {
+  return services_profile_service_pb.AuthResponse.deserializeBinary(new Uint8Array(buffer_arg));
 }
 
 function serialize_profile_ConfirmProfileRequest(arg) {
@@ -154,12 +154,12 @@ var ProfileServiceService = exports.ProfileServiceService = {
     path: '/profile.ProfileService/Auth',
     requestStream: false,
     responseStream: false,
-    requestType: services_profile_service_pb.AuthReq,
-    responseType: services_profile_service_pb.AuthRes,
-    requestSerialize: serialize_profile_AuthReq,
-    requestDeserialize: deserialize_profile_AuthReq,
-    responseSerialize: serialize_profile_AuthRes,
-    responseDeserialize: deserialize_profile_AuthRes,
+    requestType: services_profile_service_pb.AuthRequest,
+    responseType: services_profile_service_pb.AuthResponse,
+    requestSerialize: serialize_profile_AuthRequest,
+    requestDeserialize: deserialize_profile_AuthRequest,
+    responseSerialize: serialize_profile_AuthResponse,
+    responseDeserialize: deserialize_profile_AuthResponse,
   },
   // / ProfileService CreateProfile :- help's uo to create a profile
   createProfile: {

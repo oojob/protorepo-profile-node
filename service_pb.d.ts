@@ -259,7 +259,7 @@ export namespace ValidateEmailRequest {
   }
 }
 
-export class AuthRes extends jspb.Message {
+export class AuthResponse extends jspb.Message {
   getToken(): string;
   setToken(value: string): void;
 
@@ -267,23 +267,23 @@ export class AuthRes extends jspb.Message {
   setValid(value: boolean): void;
 
   serializeBinary(): Uint8Array;
-  toObject(includeInstance?: boolean): AuthRes.AsObject;
-  static toObject(includeInstance: boolean, msg: AuthRes): AuthRes.AsObject;
+  toObject(includeInstance?: boolean): AuthResponse.AsObject;
+  static toObject(includeInstance: boolean, msg: AuthResponse): AuthResponse.AsObject;
   static extensions: {[key: number]: jspb.ExtensionFieldInfo<jspb.Message>};
   static extensionsBinary: {[key: number]: jspb.ExtensionFieldBinaryInfo<jspb.Message>};
-  static serializeBinaryToWriter(message: AuthRes, writer: jspb.BinaryWriter): void;
-  static deserializeBinary(bytes: Uint8Array): AuthRes;
-  static deserializeBinaryFromReader(message: AuthRes, reader: jspb.BinaryReader): AuthRes;
+  static serializeBinaryToWriter(message: AuthResponse, writer: jspb.BinaryWriter): void;
+  static deserializeBinary(bytes: Uint8Array): AuthResponse;
+  static deserializeBinaryFromReader(message: AuthResponse, reader: jspb.BinaryReader): AuthResponse;
 }
 
-export namespace AuthRes {
+export namespace AuthResponse {
   export type AsObject = {
     token: string,
     valid: boolean,
   }
 }
 
-export class AuthReq extends jspb.Message {
+export class AuthRequest extends jspb.Message {
   getUsername(): string;
   setUsername(value: string): void;
 
@@ -291,16 +291,16 @@ export class AuthReq extends jspb.Message {
   setPassword(value: string): void;
 
   serializeBinary(): Uint8Array;
-  toObject(includeInstance?: boolean): AuthReq.AsObject;
-  static toObject(includeInstance: boolean, msg: AuthReq): AuthReq.AsObject;
+  toObject(includeInstance?: boolean): AuthRequest.AsObject;
+  static toObject(includeInstance: boolean, msg: AuthRequest): AuthRequest.AsObject;
   static extensions: {[key: number]: jspb.ExtensionFieldInfo<jspb.Message>};
   static extensionsBinary: {[key: number]: jspb.ExtensionFieldBinaryInfo<jspb.Message>};
-  static serializeBinaryToWriter(message: AuthReq, writer: jspb.BinaryWriter): void;
-  static deserializeBinary(bytes: Uint8Array): AuthReq;
-  static deserializeBinaryFromReader(message: AuthReq, reader: jspb.BinaryReader): AuthReq;
+  static serializeBinaryToWriter(message: AuthRequest, writer: jspb.BinaryWriter): void;
+  static deserializeBinary(bytes: Uint8Array): AuthRequest;
+  static deserializeBinaryFromReader(message: AuthRequest, reader: jspb.BinaryReader): AuthRequest;
 }
 
-export namespace AuthReq {
+export namespace AuthRequest {
   export type AsObject = {
     username: string,
     password: string,

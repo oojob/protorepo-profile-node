@@ -168,7 +168,7 @@ message ValidateEmailRequest {
 /**
  * AuthRes :- authentication response
  */
-message AuthRes {
+message AuthResponse {
   string token = 1;
   bool valid = 2;
 }
@@ -176,7 +176,7 @@ message AuthRes {
 /**
  * AuthReq :- authentication request
  */
-message AuthReq {
+message AuthRequest {
   string username = 1;
   string password = 2;
 }
@@ -191,7 +191,7 @@ message AuthReq {
  */
 service ProfileService {
   /// ProfileService Auth for authentication
-  rpc Auth(AuthReq) returns (AuthRes);
+  rpc Auth(AuthRequest) returns (AuthResponse);
 
   /// ProfileService CreateProfile :- help's uo to create a profile
   rpc CreateProfile(Profile) returns (github.com.oojob.protobuf.Id);
