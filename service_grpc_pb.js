@@ -63,6 +63,28 @@ function deserialize_github_com_oojob_protobuf_Id(buffer_arg) {
   return github_com_oojob_protobuf_system_pb.Id.deserializeBinary(new Uint8Array(buffer_arg));
 }
 
+function serialize_profile_AuthReq(arg) {
+  if (!(arg instanceof services_profile_service_pb.AuthReq)) {
+    throw new Error('Expected argument of type profile.AuthReq');
+  }
+  return new Buffer(arg.serializeBinary());
+}
+
+function deserialize_profile_AuthReq(buffer_arg) {
+  return services_profile_service_pb.AuthReq.deserializeBinary(new Uint8Array(buffer_arg));
+}
+
+function serialize_profile_AuthRes(arg) {
+  if (!(arg instanceof services_profile_service_pb.AuthRes)) {
+    throw new Error('Expected argument of type profile.AuthRes');
+  }
+  return new Buffer(arg.serializeBinary());
+}
+
+function deserialize_profile_AuthRes(buffer_arg) {
+  return services_profile_service_pb.AuthRes.deserializeBinary(new Uint8Array(buffer_arg));
+}
+
 function serialize_profile_ConfirmProfileRequest(arg) {
   if (!(arg instanceof services_profile_service_pb.ConfirmProfileRequest)) {
     throw new Error('Expected argument of type profile.ConfirmProfileRequest');
@@ -127,6 +149,18 @@ function deserialize_profile_ValidateUsernameRequest(buffer_arg) {
 // - we need to create profile or in other term's signup
 // - then we can login to view profile and then perform profile operation
 var ProfileServiceService = exports.ProfileServiceService = {
+  // / ProfileService Auth for authentication
+  auth: {
+    path: '/profile.ProfileService/Auth',
+    requestStream: false,
+    responseStream: false,
+    requestType: services_profile_service_pb.AuthReq,
+    responseType: services_profile_service_pb.AuthRes,
+    requestSerialize: serialize_profile_AuthReq,
+    requestDeserialize: deserialize_profile_AuthReq,
+    responseSerialize: serialize_profile_AuthRes,
+    responseDeserialize: deserialize_profile_AuthRes,
+  },
   // / ProfileService CreateProfile :- help's uo to create a profile
   createProfile: {
     path: '/profile.ProfileService/CreateProfile',

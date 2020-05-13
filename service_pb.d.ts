@@ -86,6 +86,9 @@ export namespace ProfileSecurity {
 }
 
 export class Profile extends jspb.Message {
+  getId(): string;
+  setId(value: string): void;
+
   hasIdentity(): boolean;
   clearIdentity(): void;
   getIdentity(): github_com_oojob_protobuf_system_pb.Identifier | undefined;
@@ -151,6 +154,7 @@ export class Profile extends jspb.Message {
 
 export namespace Profile {
   export type AsObject = {
+    id: string,
     identity?: github_com_oojob_protobuf_system_pb.Identifier.AsObject,
     givenName: string,
     middleName: string,
@@ -252,6 +256,54 @@ export class ValidateEmailRequest extends jspb.Message {
 export namespace ValidateEmailRequest {
   export type AsObject = {
     email: string,
+  }
+}
+
+export class AuthRes extends jspb.Message {
+  getToken(): string;
+  setToken(value: string): void;
+
+  getValid(): boolean;
+  setValid(value: boolean): void;
+
+  serializeBinary(): Uint8Array;
+  toObject(includeInstance?: boolean): AuthRes.AsObject;
+  static toObject(includeInstance: boolean, msg: AuthRes): AuthRes.AsObject;
+  static extensions: {[key: number]: jspb.ExtensionFieldInfo<jspb.Message>};
+  static extensionsBinary: {[key: number]: jspb.ExtensionFieldBinaryInfo<jspb.Message>};
+  static serializeBinaryToWriter(message: AuthRes, writer: jspb.BinaryWriter): void;
+  static deserializeBinary(bytes: Uint8Array): AuthRes;
+  static deserializeBinaryFromReader(message: AuthRes, reader: jspb.BinaryReader): AuthRes;
+}
+
+export namespace AuthRes {
+  export type AsObject = {
+    token: string,
+    valid: boolean,
+  }
+}
+
+export class AuthReq extends jspb.Message {
+  getUsername(): string;
+  setUsername(value: string): void;
+
+  getPassword(): string;
+  setPassword(value: string): void;
+
+  serializeBinary(): Uint8Array;
+  toObject(includeInstance?: boolean): AuthReq.AsObject;
+  static toObject(includeInstance: boolean, msg: AuthReq): AuthReq.AsObject;
+  static extensions: {[key: number]: jspb.ExtensionFieldInfo<jspb.Message>};
+  static extensionsBinary: {[key: number]: jspb.ExtensionFieldBinaryInfo<jspb.Message>};
+  static serializeBinaryToWriter(message: AuthReq, writer: jspb.BinaryWriter): void;
+  static deserializeBinary(bytes: Uint8Array): AuthReq;
+  static deserializeBinaryFromReader(message: AuthReq, reader: jspb.BinaryReader): AuthReq;
+}
+
+export namespace AuthReq {
+  export type AsObject = {
+    username: string,
+    password: string,
   }
 }
 

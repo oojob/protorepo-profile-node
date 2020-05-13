@@ -179,6 +179,14 @@
             <ul>
               
                 <li>
+                  <a href="#profile.AuthReq"><span class="badge">M</span>AuthReq</a>
+                </li>
+              
+                <li>
+                  <a href="#profile.AuthRes"><span class="badge">M</span>AuthRes</a>
+                </li>
+              
+                <li>
                   <a href="#profile.ConfirmProfileRequest"><span class="badge">M</span>ConfirmProfileRequest</a>
                 </li>
               
@@ -231,6 +239,68 @@
       </div>
       <p>Created on Sun Apr 28 2020</p><p>Profile related messages.</p><p>This file is resposible for all operation related to profile.</p><p>@author nirajgeorgian@oojob.io (Niraj Kishore)</p><p>Copyright (c) 2020 - oojobs</p>
 
+      
+        <h3 id="profile.AuthReq">AuthReq</h3>
+        <p>AuthReq :- authentication request</p>
+
+        
+          <table class="field-table">
+            <thead>
+              <tr><td>Field</td><td>Type</td><td>Label</td><td>Description</td></tr>
+            </thead>
+            <tbody>
+              
+                <tr>
+                  <td>username</td>
+                  <td><a href="#string">string</a></td>
+                  <td></td>
+                  <td><p> </p></td>
+                </tr>
+              
+                <tr>
+                  <td>password</td>
+                  <td><a href="#string">string</a></td>
+                  <td></td>
+                  <td><p> </p></td>
+                </tr>
+              
+            </tbody>
+          </table>
+
+          
+
+        
+      
+        <h3 id="profile.AuthRes">AuthRes</h3>
+        <p>AuthRes :- authentication response</p>
+
+        
+          <table class="field-table">
+            <thead>
+              <tr><td>Field</td><td>Type</td><td>Label</td><td>Description</td></tr>
+            </thead>
+            <tbody>
+              
+                <tr>
+                  <td>token</td>
+                  <td><a href="#string">string</a></td>
+                  <td></td>
+                  <td><p> </p></td>
+                </tr>
+              
+                <tr>
+                  <td>valid</td>
+                  <td><a href="#bool">bool</a></td>
+                  <td></td>
+                  <td><p> </p></td>
+                </tr>
+              
+            </tbody>
+          </table>
+
+          
+
+        
       
         <h3 id="profile.ConfirmProfileRequest">ConfirmProfileRequest</h3>
         <p>ConfirmProfileRequest :- request object for confirming profile</p><p>either username/email has to be filled for confirmation</p>
@@ -314,6 +384,13 @@
               <tr><td>Field</td><td>Type</td><td>Label</td><td>Description</td></tr>
             </thead>
             <tbody>
+              
+                <tr>
+                  <td>id</td>
+                  <td><a href="#string">string</a></td>
+                  <td></td>
+                  <td><p>profile :- mongodb generated ID </p></td>
+                </tr>
               
                 <tr>
                   <td>identity</td>
@@ -605,6 +682,13 @@
             <tr><td>Method Name</td><td>Request Type</td><td>Response Type</td><td>Description</td></tr>
           </thead>
           <tbody>
+            
+              <tr>
+                <td>Auth</td>
+                <td><a href="#profile.AuthReq">AuthReq</a></td>
+                <td><a href="#profile.AuthRes">AuthRes</a></td>
+                <td><p>ProfileService Auth for authentication</p></td>
+              </tr>
             
               <tr>
                 <td>CreateProfile</td>
