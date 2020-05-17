@@ -179,6 +179,10 @@
             <ul>
               
                 <li>
+                  <a href="#profile.AccessDetails"><span class="badge">M</span>AccessDetails</a>
+                </li>
+              
+                <li>
                   <a href="#profile.AuthRequest"><span class="badge">M</span>AuthRequest</a>
                 </li>
               
@@ -204,6 +208,10 @@
               
                 <li>
                   <a href="#profile.ReadProfileRequest"><span class="badge">M</span>ReadProfileRequest</a>
+                </li>
+              
+                <li>
+                  <a href="#profile.TokenRequest"><span class="badge">M</span>TokenRequest</a>
                 </li>
               
                 <li>
@@ -239,6 +247,86 @@
       </div>
       <p>Created on Sun Apr 28 2020</p><p>Profile related messages.</p><p>This file is resposible for all operation related to profile.</p><p>@author nirajgeorgian@oojob.io (Niraj Kishore)</p><p>Copyright (c) 2020 - oojobs</p>
 
+      
+        <h3 id="profile.AccessDetails">AccessDetails</h3>
+        <p>AccessDetails :- auth data response</p>
+
+        
+          <table class="field-table">
+            <thead>
+              <tr><td>Field</td><td>Type</td><td>Label</td><td>Description</td></tr>
+            </thead>
+            <tbody>
+              
+                <tr>
+                  <td>authorized</td>
+                  <td><a href="#bool">bool</a></td>
+                  <td></td>
+                  <td><p> </p></td>
+                </tr>
+              
+                <tr>
+                  <td>access_uuid</td>
+                  <td><a href="#string">string</a></td>
+                  <td></td>
+                  <td><p> </p></td>
+                </tr>
+              
+                <tr>
+                  <td>username</td>
+                  <td><a href="#string">string</a></td>
+                  <td></td>
+                  <td><p> </p></td>
+                </tr>
+              
+                <tr>
+                  <td>email</td>
+                  <td><a href="#string">string</a></td>
+                  <td></td>
+                  <td><p> </p></td>
+                </tr>
+              
+                <tr>
+                  <td>user_id</td>
+                  <td><a href="#string">string</a></td>
+                  <td></td>
+                  <td><p> </p></td>
+                </tr>
+              
+                <tr>
+                  <td>identifier</td>
+                  <td><a href="#string">string</a></td>
+                  <td></td>
+                  <td><p> </p></td>
+                </tr>
+              
+                <tr>
+                  <td>account_type</td>
+                  <td><a href="#string">string</a></td>
+                  <td></td>
+                  <td><p> </p></td>
+                </tr>
+              
+                <tr>
+                  <td>verified</td>
+                  <td><a href="#bool">bool</a></td>
+                  <td></td>
+                  <td><p> </p></td>
+                </tr>
+              
+                <tr>
+                  <td>exp</td>
+                  <td><a href="#int64">int64</a></td>
+                  <td></td>
+                  <td><p> </p></td>
+                </tr>
+              
+            </tbody>
+          </table>
+
+          
+
+        
       
         <h3 id="profile.AuthRequest">AuthRequest</h3>
         <p>AuthReq :- authentication request</p>
@@ -282,7 +370,14 @@
             <tbody>
               
                 <tr>
-                  <td>token</td>
+                  <td>access_token</td>
+                  <td><a href="#string">string</a></td>
+                  <td></td>
+                  <td><p> </p></td>
+                </tr>
+              
+                <tr>
+                  <td>refresh_token</td>
                   <td><a href="#string">string</a></td>
                   <td></td>
                   <td><p> </p></td>
@@ -586,6 +681,44 @@
 
         
       
+        <h3 id="profile.TokenRequest">TokenRequest</h3>
+        <p>TokenRequest :- passing token for getting data</p>
+
+        
+          <table class="field-table">
+            <thead>
+              <tr><td>Field</td><td>Type</td><td>Label</td><td>Description</td></tr>
+            </thead>
+            <tbody>
+              
+                <tr>
+                  <td>token</td>
+                  <td><a href="#string">string</a></td>
+                  <td></td>
+                  <td><p> </p></td>
+                </tr>
+              
+                <tr>
+                  <td>access_uuid</td>
+                  <td><a href="#string">string</a></td>
+                  <td></td>
+                  <td><p> </p></td>
+                </tr>
+              
+                <tr>
+                  <td>user_id</td>
+                  <td><a href="#string">string</a></td>
+                  <td></td>
+                  <td><p> </p></td>
+                </tr>
+              
+            </tbody>
+          </table>
+
+          
+
+        
+      
         <h3 id="profile.ValidateEmailRequest">ValidateEmailRequest</h3>
         <p>ValidateEmailRequest :- email validation request</p>
 
@@ -688,6 +821,29 @@
                 <td><a href="#profile.AuthRequest">AuthRequest</a></td>
                 <td><a href="#profile.AuthResponse">AuthResponse</a></td>
                 <td><p>ProfileService Auth for authentication</p></td>
+              </tr>
+            
+              <tr>
+                <td>RefreshToken</td>
+                <td><a href="#profile.TokenRequest">TokenRequest</a></td>
+                <td><a href="#profile.AuthResponse">AuthResponse</a></td>
+                <td><p>ProfileService RefreshToken for fetching new refresh token</p></td>
+              </tr>
+            
+              <tr>
+                <td>VerifyToken</td>
+                <td><a href="#profile.TokenRequest">TokenRequest</a></td>
+                <td><a href="#profile.AccessDetails">AccessDetails</a></td>
+                <td><p>ProfileService VerifyToken help&#39;s us to verify the auth token and return
+/ us back the profile data</p></td>
+              </tr>
+            
+              <tr>
+                <td>Logout</td>
+                <td><a href="#profile.TokenRequest">TokenRequest</a></td>
+                <td><a href="#github.com.oojob.protobuf.DefaultResponse">.github.com.oojob.protobuf.DefaultResponse</a></td>
+                <td><p>ProfileService Logout help&#39;s us to remove all the data associated with the
+/ user session</p></td>
               </tr>
             
               <tr>

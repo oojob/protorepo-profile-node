@@ -63,6 +63,17 @@ function deserialize_github_com_oojob_protobuf_Id(buffer_arg) {
   return github_com_oojob_protobuf_system_pb.Id.deserializeBinary(new Uint8Array(buffer_arg));
 }
 
+function serialize_profile_AccessDetails(arg) {
+  if (!(arg instanceof services_profile_service_pb.AccessDetails)) {
+    throw new Error('Expected argument of type profile.AccessDetails');
+  }
+  return new Buffer(arg.serializeBinary());
+}
+
+function deserialize_profile_AccessDetails(buffer_arg) {
+  return services_profile_service_pb.AccessDetails.deserializeBinary(new Uint8Array(buffer_arg));
+}
+
 function serialize_profile_AuthRequest(arg) {
   if (!(arg instanceof services_profile_service_pb.AuthRequest)) {
     throw new Error('Expected argument of type profile.AuthRequest');
@@ -118,6 +129,17 @@ function deserialize_profile_ReadProfileRequest(buffer_arg) {
   return services_profile_service_pb.ReadProfileRequest.deserializeBinary(new Uint8Array(buffer_arg));
 }
 
+function serialize_profile_TokenRequest(arg) {
+  if (!(arg instanceof services_profile_service_pb.TokenRequest)) {
+    throw new Error('Expected argument of type profile.TokenRequest');
+  }
+  return new Buffer(arg.serializeBinary());
+}
+
+function deserialize_profile_TokenRequest(buffer_arg) {
+  return services_profile_service_pb.TokenRequest.deserializeBinary(new Uint8Array(buffer_arg));
+}
+
 function serialize_profile_ValidateEmailRequest(arg) {
   if (!(arg instanceof services_profile_service_pb.ValidateEmailRequest)) {
     throw new Error('Expected argument of type profile.ValidateEmailRequest');
@@ -160,6 +182,44 @@ var ProfileServiceService = exports.ProfileServiceService = {
     requestDeserialize: deserialize_profile_AuthRequest,
     responseSerialize: serialize_profile_AuthResponse,
     responseDeserialize: deserialize_profile_AuthResponse,
+  },
+  // / ProfileService RefreshToken for fetching new refresh token
+  refreshToken: {
+    path: '/profile.ProfileService/RefreshToken',
+    requestStream: false,
+    responseStream: false,
+    requestType: services_profile_service_pb.TokenRequest,
+    responseType: services_profile_service_pb.AuthResponse,
+    requestSerialize: serialize_profile_TokenRequest,
+    requestDeserialize: deserialize_profile_TokenRequest,
+    responseSerialize: serialize_profile_AuthResponse,
+    responseDeserialize: deserialize_profile_AuthResponse,
+  },
+  // / ProfileService VerifyToken help's us to verify the auth token and return
+  // / us back the profile data
+  verifyToken: {
+    path: '/profile.ProfileService/VerifyToken',
+    requestStream: false,
+    responseStream: false,
+    requestType: services_profile_service_pb.TokenRequest,
+    responseType: services_profile_service_pb.AccessDetails,
+    requestSerialize: serialize_profile_TokenRequest,
+    requestDeserialize: deserialize_profile_TokenRequest,
+    responseSerialize: serialize_profile_AccessDetails,
+    responseDeserialize: deserialize_profile_AccessDetails,
+  },
+  // / ProfileService Logout help's us to remove all the data associated with the
+  // / user session
+  logout: {
+    path: '/profile.ProfileService/Logout',
+    requestStream: false,
+    responseStream: false,
+    requestType: services_profile_service_pb.TokenRequest,
+    responseType: github_com_oojob_protobuf_system_pb.DefaultResponse,
+    requestSerialize: serialize_profile_TokenRequest,
+    requestDeserialize: deserialize_profile_TokenRequest,
+    responseSerialize: serialize_github_com_oojob_protobuf_DefaultResponse,
+    responseDeserialize: deserialize_github_com_oojob_protobuf_DefaultResponse,
   },
   // / ProfileService CreateProfile :- help's uo to create a profile
   createProfile: {

@@ -166,19 +166,44 @@ message ValidateEmailRequest {
 }
 
 /**
- * AuthRes :- authentication response
- */
-message AuthResponse {
-  string token = 1;
-  bool valid = 2;
-}
-
-/**
  * AuthReq :- authentication request
  */
 message AuthRequest {
   string username = 1;
   string password = 2;
+}
+
+/**
+ * AuthRes :- authentication response
+ */
+message AuthResponse {
+  string access_token = 1;
+  string refresh_token = 2;
+  bool valid = 3;
+}
+
+/**
+ * AccessDetails :- auth data response
+ */
+message AccessDetails {
+  bool authorized = 1;
+  string access_uuid = 2;
+  string username = 3;
+  string email = 4;
+  string user_id = 5;
+  string identifier = 6;
+  string account_type = 7;
+  bool verified = 8;
+  int64 exp = 9;
+}
+
+/**
+ * TokenRequest :- passing token for getting data
+ */
+message TokenRequest {
+  string token = 1;
+  string access_uuid = 2;
+  string user_id = 3;
 }
 
 /**
@@ -192,6 +217,17 @@ message AuthRequest {
 service ProfileService {
   /// ProfileService Auth for authentication
   rpc Auth(AuthRequest) returns (AuthResponse);
+
+  /// ProfileService RefreshToken for fetching new refresh token
+  rpc RefreshToken(TokenRequest) returns (AuthResponse);
+
+  /// ProfileService VerifyToken help's us to verify the auth token and return
+  /// us back the profile data
+  rpc VerifyToken(TokenRequest) returns (AccessDetails);
+
+  /// ProfileService Logout help's us to remove all the data associated with the
+  /// user session
+  rpc Logout(TokenRequest) returns (github.com.oojob.protobuf.DefaultResponse);
 
   /// ProfileService CreateProfile :- help's uo to create a profile
   rpc CreateProfile(Profile) returns (github.com.oojob.protobuf.Id);

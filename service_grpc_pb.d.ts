@@ -10,6 +10,9 @@ import * as grpc from "grpc";
 
 interface IProfileServiceService extends grpc.ServiceDefinition<grpc.UntypedServiceImplementation> {
   auth: grpc.MethodDefinition<services_profile_service_pb.AuthRequest, services_profile_service_pb.AuthResponse>;
+  refreshToken: grpc.MethodDefinition<services_profile_service_pb.TokenRequest, services_profile_service_pb.AuthResponse>;
+  verifyToken: grpc.MethodDefinition<services_profile_service_pb.TokenRequest, services_profile_service_pb.AccessDetails>;
+  logout: grpc.MethodDefinition<services_profile_service_pb.TokenRequest, github_com_oojob_protobuf_system_pb.DefaultResponse>;
   createProfile: grpc.MethodDefinition<services_profile_service_pb.Profile, github_com_oojob_protobuf_system_pb.Id>;
   confirmProfile: grpc.MethodDefinition<services_profile_service_pb.ConfirmProfileRequest, github_com_oojob_protobuf_system_pb.DefaultResponse>;
   readProfile: grpc.MethodDefinition<services_profile_service_pb.ReadProfileRequest, services_profile_service_pb.Profile>;
@@ -27,6 +30,15 @@ export class ProfileServiceClient extends grpc.Client {
   auth(argument: services_profile_service_pb.AuthRequest, callback: grpc.requestCallback<services_profile_service_pb.AuthResponse>): grpc.ClientUnaryCall;
   auth(argument: services_profile_service_pb.AuthRequest, metadataOrOptions: grpc.Metadata | grpc.CallOptions | null, callback: grpc.requestCallback<services_profile_service_pb.AuthResponse>): grpc.ClientUnaryCall;
   auth(argument: services_profile_service_pb.AuthRequest, metadata: grpc.Metadata | null, options: grpc.CallOptions | null, callback: grpc.requestCallback<services_profile_service_pb.AuthResponse>): grpc.ClientUnaryCall;
+  refreshToken(argument: services_profile_service_pb.TokenRequest, callback: grpc.requestCallback<services_profile_service_pb.AuthResponse>): grpc.ClientUnaryCall;
+  refreshToken(argument: services_profile_service_pb.TokenRequest, metadataOrOptions: grpc.Metadata | grpc.CallOptions | null, callback: grpc.requestCallback<services_profile_service_pb.AuthResponse>): grpc.ClientUnaryCall;
+  refreshToken(argument: services_profile_service_pb.TokenRequest, metadata: grpc.Metadata | null, options: grpc.CallOptions | null, callback: grpc.requestCallback<services_profile_service_pb.AuthResponse>): grpc.ClientUnaryCall;
+  verifyToken(argument: services_profile_service_pb.TokenRequest, callback: grpc.requestCallback<services_profile_service_pb.AccessDetails>): grpc.ClientUnaryCall;
+  verifyToken(argument: services_profile_service_pb.TokenRequest, metadataOrOptions: grpc.Metadata | grpc.CallOptions | null, callback: grpc.requestCallback<services_profile_service_pb.AccessDetails>): grpc.ClientUnaryCall;
+  verifyToken(argument: services_profile_service_pb.TokenRequest, metadata: grpc.Metadata | null, options: grpc.CallOptions | null, callback: grpc.requestCallback<services_profile_service_pb.AccessDetails>): grpc.ClientUnaryCall;
+  logout(argument: services_profile_service_pb.TokenRequest, callback: grpc.requestCallback<github_com_oojob_protobuf_system_pb.DefaultResponse>): grpc.ClientUnaryCall;
+  logout(argument: services_profile_service_pb.TokenRequest, metadataOrOptions: grpc.Metadata | grpc.CallOptions | null, callback: grpc.requestCallback<github_com_oojob_protobuf_system_pb.DefaultResponse>): grpc.ClientUnaryCall;
+  logout(argument: services_profile_service_pb.TokenRequest, metadata: grpc.Metadata | null, options: grpc.CallOptions | null, callback: grpc.requestCallback<github_com_oojob_protobuf_system_pb.DefaultResponse>): grpc.ClientUnaryCall;
   createProfile(argument: services_profile_service_pb.Profile, callback: grpc.requestCallback<github_com_oojob_protobuf_system_pb.Id>): grpc.ClientUnaryCall;
   createProfile(argument: services_profile_service_pb.Profile, metadataOrOptions: grpc.Metadata | grpc.CallOptions | null, callback: grpc.requestCallback<github_com_oojob_protobuf_system_pb.Id>): grpc.ClientUnaryCall;
   createProfile(argument: services_profile_service_pb.Profile, metadata: grpc.Metadata | null, options: grpc.CallOptions | null, callback: grpc.requestCallback<github_com_oojob_protobuf_system_pb.Id>): grpc.ClientUnaryCall;
